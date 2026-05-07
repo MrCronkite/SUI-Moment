@@ -13,5 +13,6 @@ struct LayoutTaskApp: App {
         WindowGroup {
             TasksView()
         }
+        .modelContainer(for: Task.self)
     }
 }

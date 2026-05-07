@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
-enum TaskFilter: String, CaseIterable {
-    case all = "All"
-    case active = "Active"
-    case completed = "Completed"
-}
 
-struct Task: Identifiable {
-    let id = UUID()
+@Model
+final class Task {
+    var id: UUID
     var title: String
-    var isCompleted: Bool = false
+    var isCompleted: Bool
+    var createdAt: Date
+
+    init(title: String) {
+        self.id = UUID()
+        self.title = title
+        self.isCompleted = false
+        self.createdAt = Date()
+    }
 }
